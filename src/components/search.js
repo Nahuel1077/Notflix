@@ -1,5 +1,5 @@
   import React, { useState } from 'react';
-  import logo from './img/ensigna.svg';
+  import logo from './img/ensigna-svg.svg';
 
   export default function MovieSearch() {
     const [query, setQuery] = useState('');
