@@ -5,21 +5,19 @@
     const [query, setQuery] = useState('');
     const [movies, setMovies] = useState([]);
     const apiKey = process.env.REACT_APP_TMDB_API_KEY;
-    // Maneja el cambio en el input de búsqueda
+
     const handleInputChange = (e) => {
       setQuery(e.target.value);
     };
   
-    // Maneja el envío del formulario
     const handleSubmit = async (e) => {
       e.preventDefault();
-      // Llamada a la API de TMDb
       const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&api_key=${apiKey}`;
       
       try {
         const response = await fetch(url);
         const data = await response.json();
-        setMovies(data.results);  // Guarda los resultados de búsqueda en el estado
+        setMovies(data.results);  
         console.log(data);
         
       } catch (error) {
@@ -41,7 +39,7 @@
             </div>
         </nav>
             <div className="container">
-                {movies.length > 0 && movies.map((movie) => ( // Simplificado: Solo muestra películas si hay alguna
+                {movies.length > 0 && movies.map((movie) => ( 
                     <div key={movie.id} className="card"> 
                         <div className="card-title">
                             {movie.poster_path ? ( 
